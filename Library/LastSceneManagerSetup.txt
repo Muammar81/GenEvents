@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Plugins/PanettoneGames/GenEvents/Demo.unity
+- path: Assets/Plugins/PanettoneGames/GenEvents/Demo/Demo.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
