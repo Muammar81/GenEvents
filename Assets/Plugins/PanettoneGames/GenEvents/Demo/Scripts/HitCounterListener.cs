@@ -2,12 +2,13 @@
 using PanettoneGames.GenericEvents;
 using TMPro;
 
-public class UIHitCounter : MonoBehaviour,
+public class HitCounterListener : MonoBehaviour,
 IGameEventListener<GameObject>
 {
     [SerializeField] GameObjectEvent gameObjectEvent;
-    private TextMeshProUGUI scoreText;
-    private void Awake() => scoreText = GetComponent<TextMeshProUGUI>();
+    [SerializeField] TextMeshProUGUI scoreText;
+    private void Awake() => scoreText ??= GetComponentInChildren<TextMeshProUGUI>();
+
     private void OnEnable() => gameObjectEvent.RegisterListener(this);
     private void OnDisable() => gameObjectEvent.UnregisterListener(this);
 

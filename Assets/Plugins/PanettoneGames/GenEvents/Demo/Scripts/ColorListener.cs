@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class ColorChanger : MonoBehaviour
+public class ColorListener : MonoBehaviour
 {
     [SerializeField] Color[] colors;
     [SerializeField] [Range(0.1f, 2f)] float fadeSpeed = 0.5f;

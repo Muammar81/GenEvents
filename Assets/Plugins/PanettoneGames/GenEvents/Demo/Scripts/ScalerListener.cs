@@ -2,7 +2,7 @@ using PanettoneGames.GenericEvents;
 using System.Collections;
 using UnityEngine;
 
-public class CubeGrow : MonoBehaviour,
+public class ScalerListener : MonoBehaviour,
 IGameEventListener<GameObject>
 {
     [SerializeField] GameObjectEvent gameObjectEvent;

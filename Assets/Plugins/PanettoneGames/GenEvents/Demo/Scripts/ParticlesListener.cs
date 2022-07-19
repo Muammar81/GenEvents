@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PanettoneGames.GenericEvents;
 
-public class CubeParticles : MonoBehaviour, IGameEventListener<GameObject>
+public class ParticlesListener : MonoBehaviour, IGameEventListener<GameObject>
 {
     [SerializeField] GameObjectEvent gameObjectEvent;
     [SerializeField] ParticleSystem particleFX;
@@ -13,7 +13,7 @@ public class CubeParticles : MonoBehaviour, IGameEventListener<GameObject>
 
     public void OnEventRaised(GameObject item)
     {
-        particleFX.startColor =  item.GetComponent<ColorChanger>().Color;
+        particleFX.startColor =  item.GetComponent<ColorListener>().Color;
         
         if(!particleFX.isPlaying)
         particleFX.Play();

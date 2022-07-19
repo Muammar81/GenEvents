@@ -2,7 +2,7 @@ using PanettoneGames.GenericEvents;
 using System.Collections;
 using UnityEngine;
 
-public class CamShake : MonoBehaviour,
+public class CamShakeListener : MonoBehaviour,
 IGameEventListener<GameObject>
 {
     [SerializeField] [Range(0.05f, 1.5f)] float intensity = 0.4f;
