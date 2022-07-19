@@ -14,7 +14,7 @@ public class ColorListener : MonoBehaviour
 
     public Color Color => color;
 
-    private void Awake() => rend = GetComponent<Renderer>();
+    private void Start() => rend = GetComponent<Renderer>();
     private void OnTriggerEnter(Collider other)
     {
         while (currentindex == lastIndex)
