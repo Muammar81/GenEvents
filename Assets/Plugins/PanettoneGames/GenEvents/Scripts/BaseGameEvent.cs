@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-namespace PanettoneGames.GenericEvents
+
+namespace Plugins.PanettoneGames.GenEvents
 {
     public abstract class BaseGameEvent<T> : ScriptableObject
     {
-        private readonly List<IGameEventListener<T>> eventListeners = new List<IGameEventListener<T>>();
+        private readonly List<IGameEventListener<T>> eventListeners = new();
 
         public void Raise(T item)
         {
-            for (int i = eventListeners.Count - 1; i >= 0; i--)
+            for (var i = eventListeners.Count - 1; i >= 0; i--)
                 eventListeners[i].OnEventRaised(item);
         }
 

@@ -1,24 +1,33 @@
-using PanettoneGames.GenericEvents;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(AudioSource))]
-public class SFXManager : MonoBehaviour,
-IGameEventListener<GameObject>
+
+namespace Plugins.PanettoneGames.GenEvents.Demo.Scripts
 {
-    [SerializeField] GameObjectEvent gameObjectEvent;
-    private AudioSource audioSource;
-
-    private void Awake()
+    [RequireComponent(typeof(AudioSource))]
+    public class SFXManager : MonoBehaviour,
+        IGameEventListener<GameObject>
     {
-        audioSource = GetComponent<AudioSource>();
-    }
-    private void OnEnable() => gameObjectEvent.RegisterListener(this);
-    private void OnDisable() => gameObjectEvent.UnregisterListener(this);
+        [SerializeField] private GameObjectEvent gameObjectEvent;
+        private AudioSource audioSource;
 
-    public void OnEventRaised(GameObject item)
-    {
-        var obj = item.GetComponent<HitPublisher>();
-        audioSource.PlayOneShot(obj.SFX);
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
+        private void OnEnable()
+        {
+            gameObjectEvent.RegisterListener(this);
+        }
+
+        private void OnDisable()
+        {
+            gameObjectEvent.UnregisterListener(this);
+        }
+
+        public void OnEventRaised(GameObject item)
+        {
+            var obj = item.GetComponent<GameObjectPublisher>();
+            audioSource.PlayOneShot(obj.SFX);
+        }
     }
 }
